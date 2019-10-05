@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "7.0" ]; then
+  docker build -t lamp:7.0-apache -f .docker/70/Dockerfile .docker/70
+fi
+
+if [ "$1" == "7.1" ]; then
+  docker build -t lamp:7.1-apache -f .docker/71/Dockerfile .docker/71
+fi
+
+if [ "$1" == "7.2" ]; then
+  docker build -t lamp:7.2-apache -f .docker/72/Dockerfile .docker/72
+fi
