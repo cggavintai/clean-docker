@@ -1,10 +1,10 @@
 version: '2'
 services:
   apache:
-    image: rafaelcgstz/magento2
-    # build: .
+    image: lamp:7.2-apache
     ports:
       - "80:80" # web
+      - "443:443" # web
       - "9001:9000" # xdebug
       # - "35729:35729" # live reload
     volumes:
@@ -36,15 +36,10 @@ services:
     networks:
       - <project_name>-network
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-     - PMA_HOST=db
-     - PMA_USER=root
-     - PMA_PASSWORD=root
-     - MYSQL_ROOT_PASSWORD=root
+  adminer:
+    image: adminer
     ports:
-     - 8080:80
+     - 8080:8080
     networks:
       - <project_name>-network
 
